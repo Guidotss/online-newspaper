@@ -1,0 +1,13 @@
+body{
+    overflow-y: hidden;
+}
+.triangle {
+    width: 0;
+    height: 0;
+    border-top: 80px solid transparent;
+    border-right: 60px solid black;
+    border-bottom: 80px solid transparent;
+    position: absolute;
+    top: 43vh;
+    margin-right: 40px;
+}
