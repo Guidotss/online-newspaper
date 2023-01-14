@@ -30,6 +30,10 @@ export const Form = () => {
           <Link as={NavLink} to='/auth/register'>
             <Text size={20} color="secondary">Register</Text>
           </Link>
+          <Spacer y={0.5}/>
+          <Link as={NavLink} to='/journal'>
+            <Text size={20} color="secondary">Continue as guest</Text>
+          </Link>
         </Container>
       </AuthLayOut>
       

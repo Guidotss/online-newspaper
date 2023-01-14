@@ -1,8 +1,8 @@
 import { FC } from "react"
-import { Grid, Input } from "@nextui-org/react"
+import { Button, Container, Grid, Input, Link, Text } from "@nextui-org/react"
 import { AuthLayOut } from "../../layouts"
 import { RegisterForm } from "../components";
-
+import { NavLink } from "react-router-dom";
 
 export const RegisterPage:FC = () => {
   return (
@@ -16,6 +16,5 @@ export const RegisterPage:FC = () => {
           </Grid>
       </Grid.Container>
     </AuthLayOut>
-    
   )
 }
