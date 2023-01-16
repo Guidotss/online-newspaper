@@ -80,10 +80,12 @@ export const loginUser = async(req:Request, res:Response):Promise<Response> => {
 
             return res.status(200).json({
                 ok:true,
-                msg:'User logged',
                 uid:userLogin._id,
+                msg:'User logged',
                 name:userLogin.name,
                 lasName:userLogin.lastName,
+                isCeo:userLogin.isCeo,
+                isJournalist:userLogin.isJournalist,
                 token
             });
         }

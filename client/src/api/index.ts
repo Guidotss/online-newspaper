@@ -1,0 +1,1 @@
+export { default as journalApi } from './online-newspaperApi';

@@ -29,11 +29,12 @@ export const AuthSlice = createSlice({
             state.status = 'checking';
         },
         clearErrorMessage: (state) =>{
+            state.status = 'not-authenticated';
             state.errorMessage = null;
         }
         
     }
 }); 
 
-export const { login, logout, checking } = AuthSlice.actions;
+export const { login, logout, checking,clearErrorMessage } = AuthSlice.actions;
 export default AuthSlice.reducer;

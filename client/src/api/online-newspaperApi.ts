@@ -12,6 +12,7 @@ const journalApi:AxiosInstance = axios.create(config);
 
 journalApi.interceptors.request.use((config:AxiosRequestConfig) =>{
     return{
+        ...config,
         headers:{
             'x-token': localStorage.getItem('token') || ''
         }
