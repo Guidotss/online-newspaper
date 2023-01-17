@@ -1,4 +1,4 @@
-export interface AxiosLoginResponse {
+export interface AxiosAuthResponse {
     ok: boolean;
     uid: string;
     msg: string;

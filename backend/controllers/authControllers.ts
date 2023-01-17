@@ -37,7 +37,10 @@ export const registeUser = async(req:Request, res:Response):Promise<Response> =>
                 msg:'New user created',
                 uid:newUser._id,
                 name:newUser.name,
-                lasName:newUser.lastName
+                lasName:newUser.lastName,
+                isCeo:newUser.isCeo,
+                isJournalist:newUser.isJournalist,
+                token
             });
         }
 

@@ -28,10 +28,6 @@ router.post(
         check('email','Email is required').isEmail(),
         check('password','Password is required').not().isEmpty()
     ],
-    (req:Request,res:Response,next:NextFunction)=>{
-        console.log(req.body.password);
-        next();
-    },      
     validateErrors,
     loginUser
 );
