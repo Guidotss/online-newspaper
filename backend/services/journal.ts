@@ -23,7 +23,7 @@ export class Journal {
             if(JSON.stringify(news) ==='{}') throw new Error('News is requiered');
 
             const newNews = await this.model.create(news);
-            return news;
+            return newNews;
 
         }catch(err){
             console.log(err);

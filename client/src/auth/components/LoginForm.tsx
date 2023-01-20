@@ -1,14 +1,15 @@
 import { Button, Container, Grid, Image, Input, Link, Spacer, Text } from "@nextui-org/react"
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import { Formik,Form } from 'formik';
 import { AuthLayOut } from "../../layouts"
 import { useAuth } from '../../hooks'
+import { useEffect } from "react";
 
 
 export const FormLogin = () => {
 
-  const { startLogin } = useAuth();
-
+  const { startLogin,status } = useAuth();
+  const navigate = useNavigate();
 
   return (
     

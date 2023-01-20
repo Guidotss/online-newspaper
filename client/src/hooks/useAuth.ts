@@ -7,7 +7,7 @@ import { AxiosAuthResponse } from '../interfaces';
 export const useAuth = () => {
 
     const dispatch = useAppDispatch();
-    const { status,errorMessage } = useAppSelector((state) => state.auth);
+    const { status,errorMessage,user } = useAppSelector((state) => state.auth);
 
     const startLogin = async(email:string, password:string):Promise<void> => {
 
@@ -21,7 +21,7 @@ export const useAuth = () => {
                 localStorage.setItem('token',token);
                 localStorage.setItem('token-init-date',new Date().getTime().toString());
                 dispatch(login({user:{name,lastName,token,isCeo,isJournalist}}));
-                
+                dispatch(clearErrorMessage());
             }
         }catch(error:any){
             console.log(error.response.data.msg);
@@ -36,7 +36,7 @@ export const useAuth = () => {
 
     const startRegister = async(name:string, lastName:string, email:string, password:string):Promise<void> => {
         dispatch(checking());
-
+        
         try{
             const { data } = await journalApi.post<AxiosAuthResponse>('/auth/register', { name, lastName, email, password });
             if(data.ok){
@@ -86,6 +86,9 @@ export const useAuth = () => {
 
     return {
         status,
+        errorMessage,
+        isCeo:user?.isCeo,
+        isJournalist:user?.isJournalist,
 
         startLogin,
         startRegister,

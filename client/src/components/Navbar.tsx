@@ -1,19 +1,18 @@
 import { FC, useEffect, useState } from "react";
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { Navbar as NextNavBar, Text, Image, Container, Spacer, Button, Link, useTheme, Grid } from '@nextui-org/react';
+import { useAuth } from "../hooks";
+import { NavBarAuthButton } from "./NavBarAuthButton";
 
 
 export const Navbar:FC = () => {
 
   const { pathname } = useLocation();
+  const { startLogout }  = useAuth(); 
   const navigate = useNavigate();
 
-  const goToLogin = () => {
-    navigate('/auth/login')
-  }
-  const gotToRegister = () => {
-    navigate('/auth/register')
-  }
+
+
 
   return (
     <NextNavBar isBordered variant={ "sticky" } css={{position:'relative'}}>
@@ -58,26 +57,10 @@ export const Navbar:FC = () => {
             Books & Arts
           </Text>
         </NextNavBar.Link>
-
       </NextNavBar.Content>
 
       <NextNavBar.Content hideIn="sm">
-        <Grid.Container gap={2}>
-          <Grid xs={ 6 } md={ 6 } sm={ 4 } xl={6}>
-            <Button shadow color="gradient" ghost as={NavLink} onPress={ goToLogin } size="sm" css={{height:38}}>
-                <Text size={20}>
-                  Login
-                </Text>
-            </Button>
-          </Grid>
-          <Grid xs={ 6 } md={ 6 } sm={ 4 } xl={6}>
-            <Button shadow color="gradient" ghost  as={NavLink} onPress={ gotToRegister }  size="sm" css={{height:38}}>
-                <Text size={20}>
-                  Register
-                </Text>
-            </Button>
-          </Grid>
-        </Grid.Container>
+          <NavBarAuthButton/>
       </NextNavBar.Content>
 
     </NextNavBar>
