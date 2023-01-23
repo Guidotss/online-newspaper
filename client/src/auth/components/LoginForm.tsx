@@ -36,6 +36,7 @@ export const FormLogin = () => {
                       name="email"
                       onChange={ handleChange }
                       value={ values.email }
+                      autoComplete="on"
                     />
                   </Grid>
                   <Spacer y={1}/>
@@ -52,7 +53,7 @@ export const FormLogin = () => {
 
                   <Spacer y={1}/>
                   <Grid xs={12} sm={12} justify="center">
-                    <Button color="gradient" ghost shadow css={{width:'400px', height:'50px', marginBottom:'100px'}} type="submit">Login</Button>
+                    <Button color="gradient" ghost shadow css={{width:'400px', height:'50px', marginBottom:'70px'}} type="submit">Login</Button>
                   </Grid>
                 </Grid.Container>
               </Form>

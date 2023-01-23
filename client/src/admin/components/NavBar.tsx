@@ -18,7 +18,7 @@ export const NavBar:FC<Props> = ({ title }) => {
 
   return (
     <Container css={{width:`${IsDrawerOpen ? '85%' : '100%'}`}}>
-        <Navbar>
+        <Navbar isBordered variant='floating'>
             <Navbar.Brand>
               <IconButton onClick={ OnToggleDrawer } sx={{color:'white'}}>
                 <MenuOutlined sx={{fontSize:'50px'}}/>

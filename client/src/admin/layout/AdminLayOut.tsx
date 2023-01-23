@@ -37,7 +37,7 @@ export const AdminLayOut:FC<Props> = ({ children }) => {
           <NavBar title={checkTitle ? title : 'Admin panel'}/>
           <SideBar/>
       </Container>
-      <Container>
+      <Container css={{display:'flex', justifyContent:'center'}}>
           {children}
       </Container>
     </>
