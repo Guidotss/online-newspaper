@@ -1,12 +1,17 @@
-import { Button, Grid, Text } from "@nextui-org/react";
+import { Button, Grid, Image, Text } from "@nextui-org/react";
 import { FC } from "react"
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks";
+import { Fab, IconButton } from '@mui/material';
+import SettingsIcon from '@mui/icons-material/Settings';
+import { AdminComponent } from "./AdminComponent";
 
 export const NavBarAuthButton:FC = () => {
 
     const navigate = useNavigate();
-    const { status,startLogout } = useAuth();
+    const { status,isCeo,isJournalist,startLogout } = useAuth();
+
+    console.log({isCeo,isJournalist});
 
     const goToLogin = () => {
         navigate('/auth/login')
@@ -24,10 +29,10 @@ export const NavBarAuthButton:FC = () => {
         {
             (status === 'authenticated') 
             ?
-            <Grid xs={ 12 } md={ 12 } sm={ 12 } xl={ 12 }>
-                <Button shadow color="gradient" ghost as={NavLink} onPress={ onLogout } size="sm" css={{height:38}}>
+            <Grid xs={ 6 } md={ 6 } sm={ 6 } xl={ 6 }>
+                <Button shadow color="gradient" ghost as={NavLink} onPress={ onLogout } size="sm" css={{height:'40px'}}>
                     <Text size={20}>
-                    Log Out
+                        Log Out
                     </Text>
                 </Button>
             </Grid>
@@ -36,18 +41,26 @@ export const NavBarAuthButton:FC = () => {
             <Grid xs={ 6 } md={ 6 } sm={ 4 } xl={6}>
                 <Button shadow color="gradient" ghost as={NavLink} onPress={ goToLogin } size="sm" css={{height:38}}>
                     <Text size={20}>
-                    Login
+                        Login
                     </Text>
                 </Button>
             </Grid>
             <Grid xs={ 6 } md={ 6 } sm={ 4 } xl={6}>
                 <Button shadow color="gradient" ghost as={NavLink} onPress={ onRegister } size="sm" css={{height:38}}>
                     <Text size={20}>
-                    Register
+                        Register
                     </Text>
                 </Button>
             </Grid>
             </>
+        }
+        {   
+            (status === 'authenticated' && (isCeo || isJournalist))
+            ?                
+                <AdminComponent/>
+            :
+                null
+
         }
     </Grid.Container>
   )

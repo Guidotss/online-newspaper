@@ -5,6 +5,7 @@ import { AuthRoutes } from '../auth'
 import { useAuth } from '../hooks'
 import { HomePage, JournalRoutes } from '../journal'
 import { LoadingSpinner } from '../components';
+import { AdminRoutes } from '../admin/routes';
 
 export const AppRouter:FC = () => {
 
@@ -24,7 +25,7 @@ export const AppRouter:FC = () => {
         <Route path="/journal/*" element={<JournalRoutes/>}/>
         <Route path='/auth/*' element={<AuthRoutes/>}/>
         {
-          (status === 'authenticated' && isCeo) && <Route path='/' element={<Navigate to={'/admin'}/>}/>
+          (status === 'authenticated' && (isCeo || isJournalist)) && <Route path='/admin/*' element={<AdminRoutes/>}/>
         }
         <Route path='/' element={<Navigate to={'/journal'}/>}/>
     </Routes>

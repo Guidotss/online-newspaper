@@ -13,6 +13,14 @@ const journalSchema = new mongoose.Schema({
     body:{
         type:String,
         required:true
+    },
+    image:{
+        type:String,
+        required:true
+    },
+    importance:{
+        type:Number,
+        required:true
     }
 });
 
