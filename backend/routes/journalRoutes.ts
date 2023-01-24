@@ -10,8 +10,7 @@ router.post(
     '/create',
     [
         check('title','title is required').not().isEmpty(),
-        check('author','author is required').not().isEmpty(),
-        check('body','body is required').not().isEmpty()
+        check('content','body is required').not().isEmpty()
     ],
     validateErrors,
     createNews

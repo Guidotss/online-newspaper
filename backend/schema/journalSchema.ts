@@ -6,11 +6,7 @@ const journalSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    author:{
-        type:String,
-        required:true
-    },
-    body:{
+    content:{
         type:String,
         required:true
     },
@@ -18,8 +14,8 @@ const journalSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    importance:{
-        type:Number,
+    category:{
+        type:String,
         required:true
     }
 });

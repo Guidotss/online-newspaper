@@ -11,8 +11,6 @@ export const NavBarAuthButton:FC = () => {
     const navigate = useNavigate();
     const { status,isCeo,isJournalist,startLogout } = useAuth();
 
-    console.log({isCeo,isJournalist});
-
     const goToLogin = () => {
         navigate('/auth/login')
       }
