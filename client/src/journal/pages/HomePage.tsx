@@ -6,7 +6,7 @@ export const HomePage:FC = () => {
 
   const { loading, errorMessage, startGetnews } = useJournal();
 
-  console.log('loading',loading);
+  
   
   useEffect(() => { 
     startGetnews();

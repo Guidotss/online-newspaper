@@ -5,10 +5,10 @@ const journal = new Journal();
 
 export const getNews = async(_req: Request, res: Response):Promise<Response> => {
     try{
-        const news = await journal.getNews();
+        const NewsData = await journal.getNews();
         return res.status(200).json({
             ok:true,
-            news
+            NewsData
         });
         
     }catch(err){

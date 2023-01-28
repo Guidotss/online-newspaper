@@ -1,5 +1,7 @@
+import { AxiosJournalResponse } from './axiosJournalResponse';
+
 export interface JournalState {
-    news:object[],
+    news:AxiosJournalResponse,
     loading:boolean,
     errorMessage:object | null,
     imageLoading:boolean

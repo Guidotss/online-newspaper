@@ -57,7 +57,7 @@ export const FormLogin = () => {
                   </Grid>
                 </Grid.Container>
               </Form>
-              <Container css={{textAlign:'center', marginBottom:'50px'}}>
+              <Container css={{textAlign:'center', marginBottom:'80px'}}>
                 <Link as={NavLink} to="/auth/register">
                   <Text size={20}>Don't have an account?</Text>
                 </Link>

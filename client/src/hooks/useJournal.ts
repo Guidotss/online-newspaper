@@ -8,7 +8,7 @@ import { fileUpload } from '../helpers';
 
 export const useJournal = () => {
     const dispatch = useAppDispatch();
-    const { loading, errorMessage,imageLoading } = useAppSelector((state) => state.journal);
+    const { loading, errorMessage,imageLoading,news } = useAppSelector((state) => state.journal);
 
     const startGetnews = async():Promise<void> => {
         dispatch(startLoading());
@@ -76,6 +76,7 @@ export const useJournal = () => {
 
 
     return{
+        news,
         loading, 
         errorMessage,
         imageLoading,
