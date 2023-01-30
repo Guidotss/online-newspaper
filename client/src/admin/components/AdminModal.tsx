@@ -2,12 +2,13 @@ import { FC } from "react"
 import { Button, Container, Input, Modal, Radio, Row, Text, Textarea } from "@nextui-org/react"
 import { Category, TitleRounded } from '@mui/icons-material';
 import { InputImage } from './InputImage';
-import { useUI } from "../../hooks";
+import { useJournal, useUI } from "../../hooks";
 import { Form, Formik } from "formik";
 
 export const AdminModal:FC = () => {
 
     const { IsModalOpen,onCloseModal } = useUI();
+    const { onUpdateNews } = useJournal(); 
 
     
 const options = {
@@ -29,8 +30,8 @@ const options = {
         </Modal.Header>
         <Modal.Body>
             <Formik
-                initialValues={{title:'',content:'',category:options.sport.toString()}}
-                onSubmit={({title,content,category}) => {console.log({title,content,category})}}
+                initialValues={{title:'',content:'',category:''}}
+                onSubmit={({title,content,category}) => {onUpdateNews(title,content,category)}}
             >
                 {({values,handleChange,setFieldValue}) => (
                     <Form>

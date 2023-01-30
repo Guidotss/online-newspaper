@@ -15,7 +15,6 @@ export const NewsCard:FC<Props> = ({ news }) => {
   const { onOpenModal } = useUI();
 
 
-
   return (
     <Grid>
         <Card className="card" css={{w:'100%', height:'300px'}} isPressable>
@@ -49,7 +48,7 @@ export const NewsCard:FC<Props> = ({ news }) => {
                 </Col>
               </Row>
               <Row justify="flex-end">
-                  <Button flat auto rounded css={{color:'#94f9f0', bg:'#94f9f026'}} onPress={onOpenModal}>  
+                  <Button flat auto rounded css={{color:'#94f9f0', bg:'#94f9f026'}} onPress={() => onOpenModal(news._id)}>  
                     <Text css={{color:'inherit'}} size={12} weight='bold' transform="uppercase">
                       Editar
                     </Text>

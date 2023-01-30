@@ -10,11 +10,14 @@ export const useUI = () => {
         dispatch(toggleDrawer());
     }
 
-    const onOpenModal = () => {
+    const onOpenModal = ( newsId:string ) => {
         dispatch(openModal());
+        localStorage.setItem('newsId', newsId);
     }
 
     const onCloseModal = () => {
+        
+        localStorage.removeItem('newsId');
         dispatch(closeModal());
     }
 
