@@ -55,7 +55,13 @@ export const CreatePage:FC = () => {
                   
                 <Grid xs={6} sm={6} md={6} css={{display:'flex', flexDirection:'row'}}>
 
-                  <Radio.Group label="Choose category"  aria-label="Choose category" name="category" value={values.category} onChange={(event) => setFieldValue('category', event)}>
+                  <Radio.Group 
+                      label="Choose category"  
+                      aria-label="Choose category" 
+                      name="category" 
+                      value={values.category} 
+                      onChange={(event) => setFieldValue('category', event)}
+                  >
                       <Radio value="sport">Sport</Radio>
                       <Radio value="politics">Politics</Radio>
                       <Radio value="tech">Tech</Radio>

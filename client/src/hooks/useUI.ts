@@ -1,17 +1,29 @@
 import { useAppDispatch, useAppSelector } from './hooks';
-import { toggleDrawer } from '../store/ui/uiSlice';
+import { toggleDrawer,openModal,closeModal } from '../store/ui/uiSlice';
 
 
 export const useUI = () => {
     const dispatch = useAppDispatch();
-    const { IsDrawerOpen } = useAppSelector((state) => state.ui);
+    const { IsDrawerOpen,IsModalOpen } = useAppSelector((state) => state.ui);
 
     const OnToggleDrawer = () => {
         dispatch(toggleDrawer());
     }
 
+    const onOpenModal = () => {
+        dispatch(openModal());
+    }
+
+    const onCloseModal = () => {
+        dispatch(closeModal());
+    }
+
     return {
         IsDrawerOpen,
+        IsModalOpen,
+
         OnToggleDrawer,
+        onOpenModal,
+        onCloseModal
     }
 }

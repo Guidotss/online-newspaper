@@ -16,7 +16,7 @@ export const JournalList = () => {
     const { NewsData } = news; 
     
     if(!NewsData) {
-      return
+      return null;
     }
     
     
@@ -26,8 +26,8 @@ export const JournalList = () => {
       <Grid.Container gap={2} justify='center'>
          {
             NewsData.map((news: News) => (
-              <Grid xs={12} sm={6} md={4} lg={3}>
-                <NewsCard key={news._id} news={news} />
+              <Grid xs={12} sm={6} md={4} lg={3} key={news._id} >
+                <NewsCard news={news} />
               </Grid>
             ))
          }
