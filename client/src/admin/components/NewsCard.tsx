@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Button, Card, Col, Grid, Row, Text } from "@nextui-org/react";
 import { News } from "../../interfaces/news";
 import './card.css'; 
-import { useUI } from "../../hooks";
+import { useJournal, useUI } from "../../hooks";
 
 
 
@@ -13,11 +13,12 @@ interface Props {
 export const NewsCard:FC<Props> = ({ news }) => {
 
   const { onOpenModal } = useUI();
+  const { onDeleteNews } = useJournal();
 
 
   return (
     <Grid>
-        <Card className="card" css={{w:'100%', height:'300px'}} isPressable>
+        <Card className="card" css={{w:'100%', height:'400px', width:'350px'}} isPressable>
             <Card.Header css={{marginBottom:'-20px'}}>
                 <Col>
                   <Text h4 color="#9E9E9E" >{news.title}</Text>
@@ -40,19 +41,28 @@ export const NewsCard:FC<Props> = ({ news }) => {
                     borderTop:'$borderWeights$light solid $gray800', 
                     bottom:0,   
                     zIndex:1
-                  }}
+                }}
             >
               <Row>
                 <Col>
-                  <Text h5 color="#9E9E9E" transform="uppercase" >{news.category}</Text>
+                  <Text h5 color="#949494" transform="uppercase" >{news.category}</Text>
                 </Col>
               </Row>
-              <Row justify="flex-end">
-                  <Button flat auto rounded css={{color:'#94f9f0', bg:'#94f9f026'}} onPress={() => onOpenModal(news._id)}>  
-                    <Text css={{color:'inherit'}} size={12} weight='bold' transform="uppercase">
-                      Editar
-                    </Text>
-                  </Button>
+              <Row justify="space-between">
+                  <Col>
+                    <Button bordered auto color="warning" onPress={() => onOpenModal(news._id)}>  
+                      <Text css={{color:'inherit'}} size={12} weight='bold' transform="uppercase">
+                        Editar
+                      </Text>
+                    </Button>
+                  </Col>
+                  <Col>
+                    <Button bordered auto color="error" css={{marginLeft:10}} onPress={() => onDeleteNews(news._id)}>
+                      <Text size={12} weight='bold' transform="uppercase">
+                        Eliminar
+                      </Text>
+                    </Button>
+                  </Col>
               </Row>
             </Card.Footer>
         </Card>

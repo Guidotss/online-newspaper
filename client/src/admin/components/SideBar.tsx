@@ -5,7 +5,7 @@ import { Text,Link, Image } from "@nextui-org/react";
 import { Add,Edit,Delete,AdminPanelSettings, TrendingUp, Key } from '@mui/icons-material';
 import { useUI } from "../../hooks";
 
-const menuitems:string[] = [ "Create news", "Edit news", "Delete news", "Admin dashboard" ];
+const menuitems:string[] = [ "Create news", "Edit & Delete news", "Admin dashboard" ];
 
 
 export const SideBar:FC = () => {
@@ -41,16 +41,14 @@ export const SideBar:FC = () => {
                       as={NavLink} 
                       to={
                         item === 'Create news' ? '/admin/newNews'
-                          : item === 'Edit news' ? '/admin/edit'
-                          : item === 'Delete news' ? '/admin/delete'
+                          : item === 'Edit & Delete news' ? '/admin/edit'
                           : item === 'Admin dashboard' ? '/admin/adminPanel'
                           : '/'
                       }>
                         <ListItemIcon sx={{marginBottom:'10px',color:'white'}}>
                           {
                             item === "Create news" ? <Add sx={{fontSize:'30px'}}/> :
-                            item === "Edit news" ? <Edit sx={{fontSize:'30px'}}/> :
-                            item === "Delete news" ? <Delete sx={{fontSize:'30px'}}/> :
+                            item === "Edit & Delete news" ? <Edit sx={{fontSize:'30px'}}/> :
                             item === "Admin dashboard" ? <AdminPanelSettings sx={{fontSize:'30px'}}/> :
                             null
                           }

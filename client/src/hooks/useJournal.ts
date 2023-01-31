@@ -104,7 +104,7 @@ export const useJournal = () => {
             const { data } = await journalApi.put<AxiosJournalResponse>(`/edit/${newsId}`,UpdatedNews);
 
             if(data.ok){ 
-                console.log(data)
+
                 dispatch(startUpdateNews(data));
                 dispatch(clearErrorMessage());
                 localStorage.removeItem('image');
@@ -118,6 +118,26 @@ export const useJournal = () => {
         }
     }
     
+    
+    const onDeleteNews = async(newsId:string):Promise<void> => {
+        dispatch(startLoading());
+
+        const token = localStorage.getItem('token'); 
+        if(!token) throw new Error('No token found');
+
+        try{
+            const {data} = await journalApi.delete<AxiosJournalResponse>(`/delete/${newsId}`);
+
+            if(data.ok){
+                console.log(data);
+                dispatch(startDeleteNews(data));
+            }
+
+
+        }catch(err){
+            console.log(err);
+        }
+    }
 
     return{
         news,
@@ -128,6 +148,7 @@ export const useJournal = () => {
         startGetnews,
         startUploadImage,
         onCreateNews,
-        onUpdateNews
+        onUpdateNews,
+        onDeleteNews
     }
 }
